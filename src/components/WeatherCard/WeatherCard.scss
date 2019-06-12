@@ -1,0 +1,103 @@
+.weather-card {
+  min-width: 6.5rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  .date {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .icon {
+    height: 5rem;
+    min-width: 5rem;
+    display: block;
+    background-position: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../../assets/img/weather-icons/noneAvailable.png);
+
+    &.atmosphere {
+      background-image: url(../../assets/img/weather-icons/atmosphere.png)
+    }
+    &.clear {
+      background-image: url(../../assets/img/weather-icons/clear.png)
+    }
+    &.clouds {
+      background-image: url(../../assets/img/weather-icons/clouds.png)
+    }
+    &.snow {
+      background-image: url(../../assets/img/weather-icons/snow.png)
+    }
+    &.rain, &.drizzle {
+      background-image: url(../../assets/img/weather-icons/rain.png)
+    }
+    &.thunderstorm {
+      background-image: url(../../assets/img/weather-icons/thunderstorm.png)
+    }
+  }
+
+  &.daily {
+    padding: 1rem;
+    margin: 0 0.5rem;  
+    border-radius: 1rem;
+    cursor: pointer;
+    outline: none;
+
+    .day-of-the-week {
+      font-size: 1rem;
+    }
+
+    .icon {
+      &.spin {
+        display: inline-block;
+        animation: spin infinite 2s linear;
+      }
+    }
+
+    &.active {
+      background-color: rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+
+    }
+
+    &:hover {
+      box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  &.hourly {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+  .weather-card {
+    .day-of-the-week {
+      font-size: 1.1rem;
+    }
+    .icon {
+      height: 4rem;
+      min-width: 4rem;
+    }
+  }
+}
